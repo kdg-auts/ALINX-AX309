@@ -3,19 +3,17 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
 entity led_driver is
-	
 	generic (
 		INTERVAL1s: integer := 50000000;
 		INTERVAL100ms: integer :=5000000
-		);
-	
+	);
 	port (
 		clk : in std_logic;
 		rst	: in std_logic;
 		state : in std_logic;
 		blink : in std_logic;
 		led	: out std_logic
-		);
+	);
 end led_driver;	 
 
 architecture led_drv_arch of led_driver is
@@ -66,8 +64,8 @@ begin
 	end process;
 	
 	led <= wave1s when state = '1' and blink = '1' else
-	wave100ms when state = '0' and blink = '1' else	
-	'1' when state = '1' and blink = '0' else
-	'0'; -- state = '0' and blink = '0'
+	       wave100ms when state = '0' and blink = '1' else	
+	       '1' when state = '1' and blink = '0' else
+	       '0'; -- state = '0' and blink = '0'
 	
 end architecture led_drv_arch;
