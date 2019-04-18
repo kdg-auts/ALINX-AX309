@@ -1,15 +1,15 @@
 -------------------------------------------------------------------------------
--- Description : драйвер излучателя звука
+-- Description : РґСЂР°Р№РІРµСЂ РёР·Р»СѓС‡Р°С‚РµР»СЏ Р·РІСѓРєР°
 -------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 
 entity beep_driver is
 	generic (
-		SND_MODE: std_logic := '1'; -- режим работы: "0" = константа, "1" = частота
-		SB_PERIOD: integer := 10000000; -- количество периодов CLK для 200 мс (Fclk = 50 MHz)
-		LB_PERIOD: integer := 50000000; -- количество периодов CLK для 1сек (Fclk = 50 MHz)
-		SND_PERIOD: integer := 25000 -- количество периодов CLK для 0,5 мс (Fзв = 2 кГц)
+		SND_MODE: std_logic := '1'; -- СЂРµР¶РёРј СЂР°Р±РѕС‚С‹: "0" = РєРѕРЅСЃС‚Р°РЅС‚Р°, "1" = С‡Р°СЃС‚РѕС‚Р°
+		SB_PERIOD: integer := 10000000; -- РєРѕР»РёС‡РµСЃС‚РІРѕ РїРµСЂРёРѕРґРѕРІ CLK РґР»СЏ 200 РјСЃ (Fclk = 50 MHz)
+		LB_PERIOD: integer := 50000000; -- РєРѕР»РёС‡РµСЃС‚РІРѕ РїРµСЂРёРѕРґРѕРІ CLK РґР»СЏ 1СЃРµРє (Fclk = 50 MHz)
+		SND_PERIOD: integer := 25000 -- РєРѕР»РёС‡РµСЃС‚РІРѕ РїРµСЂРёРѕРґРѕРІ CLK РґР»СЏ 0,5 РјСЃ (Fsnd = 2 kHz)
 	);
 	port(
 		SB : in STD_LOGIC;
@@ -21,12 +21,12 @@ entity beep_driver is
 end beep_driver;
 
 architecture beep_driver_arch of beep_driver is
-	signal beep_count: INTEGER range 0 to LB_PERIOD-1; -- счетчик периода времени вывода звука
-	signal snd_count: INTEGER range 0 to SND_PERIOD-1; -- счетчик генератора звуковой частоты
-	signal snd_wave: std_logic; -- звуковая частота 2 кГц
-	signal beep_en: std_logic; -- разрешение для вывода звука
-	type snd_state_type is (IDLE, SBEEP, LBEEP); -- состояния автомата звукогенератора
-	signal snd_state: snd_state_type := IDLE; -- автомат звукогенератора
+	signal beep_count: INTEGER range 0 to LB_PERIOD-1; -- СЃС‡РµС‚С‡РёРє РїРµСЂРёРѕРґР° РІСЂРµРјРµРЅРё РІС‹РІРѕРґР° Р·РІСѓРєР°
+	signal snd_count: INTEGER range 0 to SND_PERIOD-1; -- СЃС‡РµС‚С‡РёРє РіРµРЅРµСЂР°С‚РѕСЂР° Р·РІСѓРєРѕРІРѕР№ С‡Р°СЃС‚РѕС‚С‹
+	signal snd_wave: std_logic; -- Р·РІСѓРєРѕРІР°СЏ С‡Р°СЃС‚РѕС‚Р° 2 РєР“С†
+	signal beep_en: std_logic; -- СЂР°Р·СЂРµС€РµРЅРёРµ РґР»СЏ РІС‹РІРѕРґР° Р·РІСѓРєР°
+	type snd_state_type is (IDLE, SBEEP, LBEEP); -- СЃРѕСЃС‚РѕСЏРЅРёСЏ Р°РІС‚РѕРјР°С‚Р° Р·РІСѓРєРѕРіРµРЅРµСЂР°С‚РѕСЂР°
+	signal snd_state: snd_state_type := IDLE; -- Р°РІС‚РѕРјР°С‚ Р·РІСѓРєРѕРіРµРЅРµСЂР°С‚РѕСЂР°
 begin
 	snd_gen: process(clk, rst)
 	begin
