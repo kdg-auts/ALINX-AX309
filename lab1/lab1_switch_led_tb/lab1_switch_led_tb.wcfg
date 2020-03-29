@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/Users/Gizmo/Documents/STUDY/ALINX-AX309/lab1/lab1_switch_led_tb_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="lab1_switch_led_tb" />
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="8" />
+   <wvobject fp_name="/lab1_switch_led_tb/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lab1_switch_led_tb/rst" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lab1_switch_led_tb/led" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">led[3:0]</obj_property>
+      <obj_property name="ObjectShortName">led[3:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#800000</obj_property>
+   </wvobject>
+   <wvobject fp_name="/lab1_switch_led_tb/swi" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">swi[3:0]</obj_property>
+      <obj_property name="ObjectShortName">swi[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider20" type="divider">
+      <obj_property name="label">internals:</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+   <wvobject fp_name="group7" type="group">
+      <obj_property name="label">switch_driver</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/lab1_switch_led_tb/uut/U1/U1/sw_state_shiftreg" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">sw_state_shiftreg[5:0]</obj_property>
+         <obj_property name="ObjectShortName">sw_state_shiftreg[5:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lab1_switch_led_tb/uut/U1/U1/sw_fsm_state" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">sw_fsm_state</obj_property>
+         <obj_property name="ObjectShortName">sw_fsm_state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lab1_switch_led_tb/uut/U1/U1/sw_scan_counter" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">sw_scan_counter</obj_property>
+         <obj_property name="ObjectShortName">sw_scan_counter</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lab1_switch_led_tb/uut/U1/U1/shiftreg_en" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">shiftreg_en</obj_property>
+         <obj_property name="ObjectShortName">shiftreg_en</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lab1_switch_led_tb/uut/U1/U1/rie" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">rie</obj_property>
+         <obj_property name="ObjectShortName">rie</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lab1_switch_led_tb/uut/U1/U1/fae" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">fae</obj_property>
+         <obj_property name="ObjectShortName">fae</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lab1_switch_led_tb/uut/U1/U1/lpr" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">lpr</obj_property>
+         <obj_property name="ObjectShortName">lpr</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lab1_switch_led_tb/uut/U1/U1/long_press_counter" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">long_press_counter</obj_property>
+         <obj_property name="ObjectShortName">long_press_counter</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group11" type="group">
+      <obj_property name="label">control_fsm</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/lab1_switch_led_tb/uut/U1/U2/fsm_state" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">fsm_state</obj_property>
+         <obj_property name="ObjectShortName">fsm_state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lab1_switch_led_tb/uut/U1/U2/led_mode_sig" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">led_mode_sig[1:0]</obj_property>
+         <obj_property name="ObjectShortName">led_mode_sig[1:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group15" type="group">
+      <obj_property name="label">led_driver</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/lab1_switch_led_tb/uut/U1/U3/counter_1" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">counter_1</obj_property>
+         <obj_property name="ObjectShortName">counter_1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lab1_switch_led_tb/uut/U1/U3/wave_1sec" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">wave_1sec</obj_property>
+         <obj_property name="ObjectShortName">wave_1sec</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lab1_switch_led_tb/uut/U1/U3/counter_2" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">counter_2</obj_property>
+         <obj_property name="ObjectShortName">counter_2</obj_property>
+      </wvobject>
+      <wvobject fp_name="/lab1_switch_led_tb/uut/U1/U3/wave_100ms" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">wave_100ms</obj_property>
+         <obj_property name="ObjectShortName">wave_100ms</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

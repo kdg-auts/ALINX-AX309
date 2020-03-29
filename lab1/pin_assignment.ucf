@@ -1,26 +1,27 @@
 ##################################################################################
 ## External Clock
 ##################################################################################
-NET "CLK" LOC = T8 | TNM_NET = "sys_clk_pin";
-TIMESPEC "TS_sys_clk_pin" = PERIOD "sys_clk_pin" 50 MHz HIGH 50.00%;
+NET "CLK" TNM_NET = "sys_clk_pin" ;
+NET "CLK" LOC = T8;
+TIMESPEC TS_sys_clk_pin = PERIOD "sys_clk_pin" 50 MHz HIGH 50 % ;
 
 ##################################################################################
-## Custom reset (external pull-up)
+## Custom reset (external pull-up)  ## RESET pushbutton
 ##################################################################################
-NET "RST" LOC = L3 | IOSTANDARD = "LVCMOS33"; ## RESET pushbutton
+NET "RST" LOC = L3 | IOSTANDARD = LVCMOS33 ;
 
 ##################################################################################
 ## LED Pins 
 ##################################################################################
-NET "led<0>"  LOC = P4 | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 8 ; ## LED0
-NET "led<1>"  LOC = N5 | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 8 ; ## LED1
-NET "led<2>"  LOC = P5 | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 8 ; ## LED2
-NET "led<3>"  LOC = M6 | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 8 ; ## LED3
+NET "LED[0]" LOC = P4 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = SLOW ;
+NET "LED[1]" LOC = N5 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = SLOW ;
+NET "LED[2]" LOC = P5 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = SLOW ;
+NET "LED[3]" LOC = M6 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = SLOW ;
 
 ##################################################################################
 ## KEY Pins (external pull-up)
 ##################################################################################
-NET "KN<0>"  LOC = C3 | IOSTANDARD = "LVCMOS33" ; ## KEY1
-NET "KN<1>"  LOC = D3 | IOSTANDARD = "LVCMOS33" ; ## KEY2
-NET "KN<2>"  LOC = E4 | IOSTANDARD = "LVCMOS33" ; ## KEY3
-NET "KN<3>"  LOC = E3 | IOSTANDARD = "LVCMOS33" ; ## KEY4
+NET "SWI[0]" LOC = C3 | IOSTANDARD = "LVCMOS33" ;
+NET "SWI[1]" LOC = D3 | IOSTANDARD = "LVCMOS33" ;
+NET "SWI[2]" LOC = E4 | IOSTANDARD = "LVCMOS33" ;
+NET "SWI[3]" LOC = E3 | IOSTANDARD = "LVCMOS33" ;
