@@ -68,3 +68,4 @@ lab1/isim/lab1_switch_led_tb_isim_beh.exe.sim/tmp_save/_1
 *.lpc
 *.rpt
 *.projectmgr
+*.bit

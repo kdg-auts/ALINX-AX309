@@ -1,0 +1,41 @@
+##################################################################################
+## AX309 Board FPGA Pin Definition 
+## FPGA Family: Spartan-6 
+## FPGA Model: XC6SLX9
+## FPGA Package: FT(G)256
+##################################################################################
+
+##################################################################################
+## External Clock
+##################################################################################
+NET "CLK" LOC = T8 | TNM_NET = "sys_clk_pin";
+TIMESPEC "TS_sys_clk_pin" = PERIOD "sys_clk_pin" 50 MHz HIGH 50.00%;
+
+##################################################################################
+## Custom reset (external pull-up)
+##################################################################################
+NET "RST" LOC = L3 | IOSTANDARD = "LVCMOS33"; ## RESET pushbutton
+
+##################################################################################
+## Buzzer Pin 
+##################################################################################
+NET "BO"  LOC = J11 | IOSTANDARD = "LVCMOS33";  ##  Buzzer output
+
+##################################################################################
+## 7-Segment Display Pins 
+##################################################################################
+NET SEG<0>  LOC = C7 | IOSTANDARD = "LVCMOS33";    ## DIG0 - segment A 
+NET SEG<1>  LOC = E6 | IOSTANDARD = "LVCMOS33";    ## DIG1 - segment B
+NET SEG<2>  LOC = C5 | IOSTANDARD = "LVCMOS33";    ## DIG2 - segment C
+NET SEG<3>  LOC = F7 | IOSTANDARD = "LVCMOS33";    ## DIG3 - segment D
+NET SEG<4>  LOC = D6 | IOSTANDARD = "LVCMOS33";    ## DIG4 - segment E
+NET SEG<5>  LOC = E7 | IOSTANDARD = "LVCMOS33";    ## DIG5 - segment F
+NET SEG<6>  LOC = D5 | IOSTANDARD = "LVCMOS33";    ## DIG6 - segment G
+NET SEG<7>  LOC = C6 | IOSTANDARD = "LVCMOS33";    ## DIG7 - segment H
+
+#NET DIG<5>  LOC = D9 | IOSTANDARD = "LVCMOS33";    ##  SEL0 - digit 1
+#NET DIG<4>  LOC = E10 | IOSTANDARD = "LVCMOS33";   ##  SEL1 - digit 2
+NET DIG<3>  LOC = F10 | IOSTANDARD = "LVCMOS33";   ##  SEL2 - digit 3
+NET DIG<2>  LOC = F9 | IOSTANDARD = "LVCMOS33";    ##  SEL3 - digit 4
+NET DIG<1>  LOC = E8 | IOSTANDARD = "LVCMOS33";    ##  SEL4 - digit 5
+NET DIG<0>  LOC = D8 | IOSTANDARD = "LVCMOS33";    ##  SEL5 - digit 6
