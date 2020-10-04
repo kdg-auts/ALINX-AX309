@@ -1,0 +1,47 @@
+##################################################################################
+## AX309 Board FPGA Pin Definition 
+## FPGA Family: Spartan-6 
+## FPGA Model: XC6SLX9
+## FPGA Package: FT(G)256
+##################################################################################
+
+##################################################################################
+## External Clock
+##################################################################################
+NET "GLOBAL_CLK" LOC = T8 | TNM_NET = "sys_clk_pin";
+TIMESPEC "TS_sys_clk_pin" = PERIOD "sys_clk_pin" 50 MHz HIGH 50.00%;
+
+##################################################################################
+## Custom reset (external pull-up)
+##################################################################################
+NET "GLOBAL_RST" LOC = L3 | IOSTANDARD = "LVCMOS33"; ## RESET pushbutton
+
+##################################################################################
+## Buzzer Pin 
+##################################################################################
+NET "BEEP"  LOC = J11 | IOSTANDARD = "LVCMOS33";  ##  Buzzer output
+
+##################################################################################
+## KEY Pins (external pull-up)
+##################################################################################
+NET "UP_BTN"    LOC = C3 | IOSTANDARD = "LVCMOS33" ; ## KEY1 pushbutton
+NET "DOWN_BTN"  LOC = D3 | IOSTANDARD = "LVCMOS33" ; ## KEY2 pushbutton
+
+##################################################################################
+## 7-Segment Display Pins 
+##################################################################################
+NET "seg_data[0]"  LOC = C7 | IOSTANDARD = "LVCMOS33";    ## DIG0 - segment A 
+NET "seg_data[1]"  LOC = E6 | IOSTANDARD = "LVCMOS33";    ## DIG1 - segment B
+NET "seg_data[2]"  LOC = C5 | IOSTANDARD = "LVCMOS33";    ## DIG2 - segment C
+NET "seg_data[3]"  LOC = F7 | IOSTANDARD = "LVCMOS33";    ## DIG3 - segment D
+NET "seg_data[4]"  LOC = D6 | IOSTANDARD = "LVCMOS33";    ## DIG4 - segment E
+NET "seg_data[5]"  LOC = E7 | IOSTANDARD = "LVCMOS33";    ## DIG5 - segment F
+NET "seg_data[6]"  LOC = D5 | IOSTANDARD = "LVCMOS33";    ## DIG6 - segment G
+NET "seg_data[7]"  LOC = C6 | IOSTANDARD = "LVCMOS33";    ## DIG7 - segment H
+
+NET "seg_select[5]"  LOC = D9  | IOSTANDARD = "LVCMOS33";   ##  SEL0 - digit 1
+NET "seg_select[4]"  LOC = E10 | IOSTANDARD = "LVCMOS33";   ##  SEL1 - digit 2
+NET "seg_select[3]"  LOC = F10 | IOSTANDARD = "LVCMOS33";   ##  SEL2 - digit 3
+NET "seg_select[2]"  LOC = F9  | IOSTANDARD = "LVCMOS33";   ##  SEL3 - digit 4
+NET "seg_select[1]"  LOC = E8  | IOSTANDARD = "LVCMOS33";   ##  SEL4 - digit 5
+NET "seg_select[0]"  LOC = D8  | IOSTANDARD = "LVCMOS33";   ##  SEL5 - digit 6

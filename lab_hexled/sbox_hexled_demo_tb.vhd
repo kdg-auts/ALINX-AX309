@@ -18,9 +18,9 @@ begin
     -- UUT module instantiation
     uut: entity work.sbox_hexled_demo(sbox_hexled_demo_arch) 
     generic map (
-		H_PERIOD => H_PERIOD_test,
+        H_PERIOD => H_PERIOD_test,
         CNT_LIMIT=> CNT_LIMIT_test
-	)
+    )
     port map ( 
         global_clk => clk_test,
         global_rst => rst_test,
@@ -29,19 +29,19 @@ begin
     );
 
     clk_gen_proc: process
-	begin
-		clk_test <= '0';
-		wait for clk_period/2;
-		clk_test <= '1';
-		wait for clk_period/2;
-	end process;
+    begin
+        clk_test <= '0';
+        wait for clk_period/2;
+        clk_test <= '1';
+        wait for clk_period/2;
+    end process;
     
     rst_gen_proc: process
-	begin
-		rst_test <= '0';
-		wait for clk_period*2;
-		rst_test <= '1';
-		wait;
-	end process;
+    begin
+        rst_test <= '0';
+        wait for clk_period*2;
+        rst_test <= '1';
+        wait;
+    end process;
 
 end architecture;

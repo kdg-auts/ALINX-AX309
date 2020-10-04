@@ -14,8 +14,8 @@ use IEEE.NUMERIC_STD.all;
 
 entity counter_4_bit_1_sec is
     generic (
-		H_PERIOD: integer := 50000000 -- 50M counts of clk = 1 sec
-	);
+        H_PERIOD: integer := 50000000 -- 50M counts of clk = 1 sec
+    );
     port ( 
         clk : in  STD_LOGIC;
         rst : in  STD_LOGIC;
@@ -25,25 +25,26 @@ end counter_4_bit_1_sec;
 
 architecture counter_4_bit_1_sec_arch of counter_4_bit_1_sec is
     signal h_count: integer range 0 to H_PERIOD-1;
-	signal h_value: unsigned(3 downto 0) := (others => '0');
+    signal h_value: unsigned(3 downto 0) := (others => '0');
 begin
-    -- ??????? ???????? ? ???????????? ??????? ?????????? S-Box
+    -- process counts time interval with h_count
+    -- each time counter overflows data register increments
     process(clk, rst)
-	begin
-		if rising_edge(clk) then 
-			if rst = '1' then 
-				h_count <= 0;
-				h_value <= (others => '0');
-			elsif h_count = H_PERIOD-1 then
-				h_count <= 0;
-				h_value <= h_value + 1;
-			else 
-				h_count <= h_count + 1;
-			end if;
-		end if;
-	end process;
+    begin
+        if rising_edge(clk) then 
+            if rst = '1' then 
+                h_count <= 0;
+                h_value <= (others => '0');
+            elsif h_count = H_PERIOD-1 then
+                h_count <= 0;
+                h_value <= h_value + 1; -- h_value overflows to 0
+            else 
+                h_count <= h_count + 1;
+            end if;
+        end if;
+    end process;
     
-    -- ???????????? ??????? ?????????? S-Box
+    -- type conversion for output port
     cdata <= std_logic_vector(h_value);
 
 end counter_4_bit_1_sec_arch;
