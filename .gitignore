@@ -3,9 +3,11 @@
 
 # exeptions
 !.gitignore
+!README.MD
 !*.vhd
 !*.vhdl
 !*.ucf
 !*.ise
 !*.gise
-#!*/*_tb/*
+!*/*_tb/
+!*/*_tb/*
