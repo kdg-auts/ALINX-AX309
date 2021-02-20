@@ -10,7 +10,7 @@
 !*.xise
 !*.gise
 !*\*_tb\
-!*\*_tb\*
+#!*\*_tb\*
 !lab*\doc\
 doc\*
 !doc\*.pdf
