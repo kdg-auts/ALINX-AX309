@@ -11,3 +11,6 @@
 !*.gise
 !*/*_tb/
 !*/*_tb/*
+!doc/
+doc/*
+!doc/*.pdf
