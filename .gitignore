@@ -4,11 +4,11 @@
 # exeptions
 !.gitignore
 !README.md
-!*.vhd
-!*.vhdl
-!*.ucf
-!*.xise
-!*.gise
+!**.vhd
+!**.vhdl
+!**.ucf
+!**.xise
+!**.gise
 !**_tb/
 !**_tb/*
 !lab?/doc/
