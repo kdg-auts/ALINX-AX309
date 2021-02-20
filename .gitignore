@@ -6,7 +6,7 @@
 !README.md
 !**.vhd
 !**.vhdl
-!**.ucf
+#!**.ucf
 !**.xise
 !**.gise
 !**_tb/
