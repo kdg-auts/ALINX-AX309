@@ -7,7 +7,7 @@
 !*.vhd
 !*.vhdl
 !*.ucf
-!*.ise
+!*.xise
 !*.gise
 !*/*_tb/
 !*/*_tb/*
