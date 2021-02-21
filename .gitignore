@@ -12,7 +12,6 @@
 !lab*
 !**_tb/
 **_tb/*
-!**_tb/*.vhd
 !lab*/doc/
 **/doc/*
 !**/doc/*.pdf
