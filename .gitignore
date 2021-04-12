@@ -4,7 +4,7 @@
 *.html
 *.log
 *.cmd
-lab1/isim/pn_info
+lab1/isim/*
 *.c
 *.didat
 *.obj
@@ -12,7 +12,6 @@ lab1/isim/pn_info
 *.dll
 *.dat
 *.exe
-lab1/isim/test_isim_beh.exe.sim/tmp_save/_1
 *.vdb
 *.vdbx
 *.vdbl
@@ -64,7 +63,6 @@ lab1/sch2HdlBatchFile
 *.txt
 *.wdf
 *.xbcd
-lab1/isim/lab1_switch_led_tb_isim_beh.exe.sim/tmp_save/_1
 *.lpc
 *.rpt
 *.projectmgr
