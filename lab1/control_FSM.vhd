@@ -12,7 +12,7 @@ use IEEE.numeric_std.all;
 entity control_fsm is
 	port (
 		CLK : in std_logic;
-		RST	: in std_logic;
+		RST : in std_logic;
 		RIE : in std_logic;
 		FAE : in std_logic;
 		LPR : in std_logic;

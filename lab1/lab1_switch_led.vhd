@@ -71,8 +71,7 @@ U4: entity work.switch_led_tester(switch_led_tester_arch)
 		LED_OUT => LED_sig(3)
 	);
 
-	-- input adaptation (positive or negative logic format
-	--  depending on dev board schematic)
+	-- input adaptation (positive or negative logic format depending on dev board schematic)
 	-- switches/keys operate with negative logic (0 = press, 1 = release)
 	rst_sig <= not RST;
 	SWI_sig <= not SWI;
