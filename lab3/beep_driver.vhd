@@ -1,4 +1,4 @@
--- project: lab2 - switch & led with beep
+-- project: lab3
 -- file: beep_driver.vhd
 -- description:
 --    piezoelectric sound speaker driver; can operate with active and passive type of speaker
