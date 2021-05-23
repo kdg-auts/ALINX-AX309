@@ -1,13 +1,26 @@
 # ignore all
 *
-# exept sources
-!*.vhd
-!*.vhdl
-!.v
-!.sv
-# except project specific
-!*.xise
-!*.gise
-!*.ucf
-# exept subdirectories
-!*/
+# exept important files
+!.gitignore
+!README.md
+# exept lab subdirectories
+!lab*/
+lab*/*
+# exept source code files anywhere
+!**/*.vhd
+!**/*.vhdl
+!**/*.v
+!**/*.sv
+# except project specific files anywhere
+!**/*.xise
+!**/*.gise
+!**/*.ucf
+# exept local documentation (any file or dir)
+!**/doc/
+!**/doc/**
+# exept testbench subdirs and TB sources/scripts
+!**/*_tb/
+**/*_tb/*
+!**/*_tb/*.vhd
+!**/*_tb/*.v
+!**/*_tb/*.do
