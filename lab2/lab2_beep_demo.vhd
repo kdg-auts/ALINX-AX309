@@ -44,7 +44,7 @@ architecture lab1_switch_led_arch of lab1_switch_led is
 	signal BPO_sig : STD_LOGIC;
 begin
 
-	unit1: entity work.switch_led_tester(switch_led_tester_arch)
+	unit1: entity work.switch_led_beep_tester(switch_led_beep_tester_arch)
 	generic map (
 		BOARD_CLK_FREQ => BOARD_CLK_FREQ
 	)
@@ -52,12 +52,12 @@ begin
 		CLK => CLK,
 		RST => RST_sig,
 		SW_IN => SWI_sig(0),
-		LED_OUT => LED_sig(0)
+		LED_OUT => LED_sig(0),
 		BEEP_MODE => BEEP_MODE_U1_sig,
 		BEEP_RUN => BEEP_RUN_U1_sig
 	);
 
-	unit2: entity work.switch_led_tester(switch_led_tester_arch)
+	unit2: entity work.switch_led_beep_tester(switch_led_beep_tester_arch)
 	generic map (
 		BOARD_CLK_FREQ => BOARD_CLK_FREQ
 	)
@@ -65,12 +65,12 @@ begin
 		CLK => CLK,
 		RST => RST_sig,
 		SW_IN => SWI_sig(1),
-		LED_OUT => LED_sig(1)
+		LED_OUT => LED_sig(1),
 		BEEP_MODE => BEEP_MODE_U2_sig,
 		BEEP_RUN => BEEP_RUN_U2_sig
 	);
 
-	unit3: entity work.switch_led_tester(switch_led_tester_arch)
+	unit3: entity work.switch_led_beep_tester(switch_led_beep_tester_arch)
 	generic map (
 		BOARD_CLK_FREQ => BOARD_CLK_FREQ
 	)
@@ -78,12 +78,12 @@ begin
 		CLK => CLK,
 		RST => RST_sig,
 		SW_IN => SWI_sig(2),
-		LED_OUT => LED_sig(2)
+		LED_OUT => LED_sig(2),
 		BEEP_MODE => BEEP_MODE_U3_sig,
 		BEEP_RUN => BEEP_RUN_U3_sig
 	);
 
-	unit4: entity work.switch_led_tester(switch_led_tester_arch)
+	unit4: entity work.switch_led_beep_tester(switch_led_beep_tester_arch)
 	generic map (
 		BOARD_CLK_FREQ => BOARD_CLK_FREQ
 	)
@@ -91,7 +91,7 @@ begin
 		CLK => CLK,
 		RST => RST_sig,
 		SW_IN => SWI_sig(3),
-		LED_OUT => LED_sig(3)
+		LED_OUT => LED_sig(3),
 		BEEP_MODE => BEEP_MODE_U4_sig,
 		BEEP_RUN => BEEP_RUN_U4_sig
 	);

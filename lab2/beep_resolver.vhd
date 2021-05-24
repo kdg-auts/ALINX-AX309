@@ -11,21 +11,22 @@ entity beep_resolver is
 	port (
 		CLK : in  STD_LOGIC;
 		RST : in  STD_LOGIC;
-		BM1_IN : in  STD_LOGIC_VECTOR (3 downto 0);
+		BM1_IN : in  STD_LOGIC_VECTOR (1 downto 0);
 		BR1_IN : in  STD_LOGIC;
-		BM2_IN : in  STD_LOGIC_VECTOR (3 downto 0);
+		BM2_IN : in  STD_LOGIC_VECTOR (1 downto 0);
 		BR2_IN : in  STD_LOGIC;
-		BM3_IN : in  STD_LOGIC_VECTOR (3 downto 0);
+		BM3_IN : in  STD_LOGIC_VECTOR (1 downto 0);
 		BR3_IN : in  STD_LOGIC;
-		BM4_IN : in  STD_LOGIC_VECTOR (3 downto 0);
+		BM4_IN : in  STD_LOGIC_VECTOR (1 downto 0);
 		BR4_IN : in  STD_LOGIC;
-		MODE_OUT : out  STD_LOGIC_VECTOR (3 downto 0);
+		MODE_OUT : out  STD_LOGIC_VECTOR (1 downto 0);
 		START_OUT : out  STD_LOGIC
 	);
 end beep_resolver;
 
 architecture beep_resolver_arch of beep_resolver is
-
+begin
+	
 	resolve_proc: process(CLK, RST) 
 	begin
 		if rising_edge(CLK) then
