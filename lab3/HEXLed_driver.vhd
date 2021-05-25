@@ -1,10 +1,11 @@
 -- project: lab3
 -- file: hexled_driver.vhd
--- description: 6-digit 7-degment led display ("hexled") driver module (suitable for
---              part on AX309 evaluation board); contains a decoder for current digit
---              and counter to compute intervals between switching of digits and dot LED,
---              switching is performed by multiplexers; driver supports shift signal
---              to select HEX digits (shift=0) or special symbols (shift=1)
+-- description: 
+--    6-digit 7-degment led display ("hexled") driver module (suitable for
+--    part on AX309 evaluation board); contains a decoder for current digit
+--    and counter to compute intervals between switching of digits and dot LED,
+--    switching is performed by multiplexers; driver supports shift signal
+--    to select HEX digits (shift=0) or special symbols (shift=1)
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 
