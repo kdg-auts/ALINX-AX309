@@ -8,7 +8,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity lab1_switch_led is
+entity lab2_beep_demo is
 	generic (
 		BOARD_CLK_FREQ : natural := 50000000; -- CLK frequency in Hz
 		SND_MODE: std_logic := '0' -- output generation mode: '0' = constant, '1' = waveform
@@ -20,9 +20,9 @@ entity lab1_switch_led is
 		LED : out  STD_LOGIC_VECTOR (3 downto 0);
 		BPO : out STD_LOGIC
 	);
-end lab1_switch_led;
+end lab2_beep_demo;
 
-architecture lab1_switch_led_arch of lab1_switch_led is
+architecture lab2_beep_demo_arch of lab2_beep_demo is
 
 	constant short_beep_period : natural := BOARD_CLK_FREQ/5; -- 200 ms
 	constant long_beep_period : natural := BOARD_CLK_FREQ; -- 1 sec
@@ -133,7 +133,7 @@ begin
 	SWI_sig <= not SWI;
 	-- LEDs operate with positive logic (0 = off, 1 = on)
 	LED <= LED_sig;
-	BPO <= BPO_sig;
+	BPO <= not BPO_sig;
 
-end lab1_switch_led_arch;
+end lab2_beep_demo_arch;
 

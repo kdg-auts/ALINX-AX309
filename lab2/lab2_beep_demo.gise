@@ -22,138 +22,160 @@
   <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="lab2_beep_demo.xise"/>
 
   <files xmlns="http://www.xilinx.com/XMLSchema">
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="_ngo"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/bitgen.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/map.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/par.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/trce.xmsgs"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="beep_driver_isim_beh.exe"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="beep_driver_stx_beh.prj"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="beep_driver_tb_beh.prj"/>
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="beep_driver_tb_isim_beh.exe"/>
-    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="beep_driver_tb_isim_beh.wdb"/>
-    <file xil_pn:fileType="FILE_LOG" xil_pn:name="fuse.log"/>
-    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd"/>
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_LOG" xil_pn:name="isim.log"/>
-    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="lab1_switch_led.cmd_log"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="lab1_switch_led.lso"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="lab1_switch_led.ngc"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="lab1_switch_led.ngr"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="lab1_switch_led.prj"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="lab1_switch_led.stx"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="lab1_switch_led.syr"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="lab1_switch_led.xst"/>
-    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="lab1_switch_led_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_NCD" xil_pn:name="lab1_switch_led_guide.ncd" xil_pn:origination="imported"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="lab2_beep_demo.bgn" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BIT" xil_pn:name="lab2_beep_demo.bit" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="lab2_beep_demo.bld"/>
+    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="lab2_beep_demo.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_DRC" xil_pn:name="lab2_beep_demo.drc" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="lab2_beep_demo.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="lab2_beep_demo.ncd" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="lab2_beep_demo.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGD" xil_pn:name="lab2_beep_demo.ngd"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="lab2_beep_demo.ngr"/>
+    <file xil_pn:fileType="FILE_PAD_MISC" xil_pn:name="lab2_beep_demo.pad"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAR_REPORT" xil_pn:name="lab2_beep_demo.par" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PCF" xil_pn:name="lab2_beep_demo.pcf" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="lab2_beep_demo.prj"/>
+    <file xil_pn:fileType="FILE_TRCE_MISC" xil_pn:name="lab2_beep_demo.ptwx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="lab2_beep_demo.stx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="lab2_beep_demo.syr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_TXT_REPORT" xil_pn:name="lab2_beep_demo.twr" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_XML_REPORT" xil_pn:name="lab2_beep_demo.twx" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_UNROUTES" xil_pn:name="lab2_beep_demo.unroutes" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="lab2_beep_demo.ut" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:fileType="FILE_XPI" xil_pn:name="lab2_beep_demo.xpi"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="lab2_beep_demo.xst"/>
+    <file xil_pn:fileType="FILE_NCD" xil_pn:name="lab2_beep_demo_guide.ncd" xil_pn:origination="imported"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="lab2_beep_demo_map.map" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="lab2_beep_demo_map.mrp" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="lab2_beep_demo_map.ncd" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGM" xil_pn:name="lab2_beep_demo_map.ngm" xil_pn:subbranch="Map"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="lab2_beep_demo_map.xrpt"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="lab2_beep_demo_ngdbuild.xrpt"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_EXCEL_REPORT" xil_pn:name="lab2_beep_demo_pad.csv" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_TXT_REPORT" xil_pn:name="lab2_beep_demo_pad.txt" xil_pn:subbranch="Par"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="lab2_beep_demo_par.xrpt"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="lab2_beep_demo_summary.xml"/>
+    <file xil_pn:fileType="FILE_WEBTALK" xil_pn:name="lab2_beep_demo_usage.xml"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="lab2_beep_demo_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="usage_statistics_webtalk.html"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="webtalk.log"/>
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_INI" xil_pn:name="xilinxsim.ini"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xlnx_auto_0_xdb"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
   </files>
 
   <transforms xmlns="http://www.xilinx.com/XMLSchema">
-    <transform xil_pn:end_ts="1618400081" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1618400080">
+    <transform xil_pn:end_ts="1622159465" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="71568698525779425" xil_pn:start_ts="1622159465">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1618402084" xil_pn:in_ck="8172701445326562062" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1618402084">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputAdded"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="beep_driver.vhd"/>
-      <outfile xil_pn:name="beep_driver_tb/beep_driver_tb.vhd"/>
-    </transform>
-    <transform xil_pn:end_ts="1618402010" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-5867330744915836773" xil_pn:start_ts="1618402010">
+    <transform xil_pn:end_ts="1622159465" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="-1115261939848840054" xil_pn:start_ts="1622159465">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1618402010" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-1384592658588407015" xil_pn:start_ts="1618402010">
+    <transform xil_pn:end_ts="1622159465" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1622159465">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1618400081" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="-6003583138409491240" xil_pn:start_ts="1618400081">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForProperties"/>
-    </transform>
-    <transform xil_pn:end_ts="1618402084" xil_pn:in_ck="8172701445326562062" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1618402084">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="beep_driver.vhd"/>
-      <outfile xil_pn:name="beep_driver_tb/beep_driver_tb.vhd"/>
-    </transform>
-    <transform xil_pn:end_ts="1618402108" xil_pn:in_ck="8172701445326562062" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="3851331265425594477" xil_pn:start_ts="1618402084">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="beep_driver_tb_beh.prj"/>
-      <outfile xil_pn:name="beep_driver_tb_isim_beh.exe"/>
-      <outfile xil_pn:name="fuse.log"/>
-      <outfile xil_pn:name="isim"/>
-      <outfile xil_pn:name="isim.log"/>
-      <outfile xil_pn:name="xilinxsim.ini"/>
-    </transform>
-    <transform xil_pn:end_ts="1618402109" xil_pn:in_ck="5865108058724651297" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-4781433574307385574" xil_pn:start_ts="1618402108">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="beep_driver_tb_isim_beh.wdb"/>
-      <outfile xil_pn:name="isim.cmd"/>
-      <outfile xil_pn:name="isim.log"/>
-    </transform>
-    <transform xil_pn:end_ts="1621842271" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1621842270">
+    <transform xil_pn:end_ts="1622159465" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="8361202168810266403" xil_pn:start_ts="1622159465">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1621842271" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="2388754013627457323" xil_pn:start_ts="1621842271">
+    <transform xil_pn:end_ts="1622159465" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="250970745411629038" xil_pn:start_ts="1622159465">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1621842271" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="5305472636079312148" xil_pn:start_ts="1621842271">
+    <transform xil_pn:end_ts="1622159465" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="443879339999808660" xil_pn:start_ts="1622159465">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1621842271" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1621842271">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1621842271" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="-9104992964246515475" xil_pn:start_ts="1621842271">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1621842271" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="250970745411629038" xil_pn:start_ts="1621842271">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1621842271" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="6109871609979013022" xil_pn:start_ts="1621842271">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1621842376" xil_pn:in_ck="-6730492047454234498" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="89939640749486573" xil_pn:start_ts="1621842365">
+    <transform xil_pn:end_ts="1622159635" xil_pn:in_ck="-6730492047454234498" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="3943773084921937635" xil_pn:start_ts="1622159623">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
-      <outfile xil_pn:name="lab1_switch_led.lso"/>
-      <outfile xil_pn:name="lab1_switch_led.ngc"/>
-      <outfile xil_pn:name="lab1_switch_led.ngr"/>
-      <outfile xil_pn:name="lab1_switch_led.prj"/>
-      <outfile xil_pn:name="lab1_switch_led.stx"/>
-      <outfile xil_pn:name="lab1_switch_led.syr"/>
-      <outfile xil_pn:name="lab1_switch_led.xst"/>
-      <outfile xil_pn:name="lab1_switch_led_xst.xrpt"/>
+      <outfile xil_pn:name="lab2_beep_demo.lso"/>
+      <outfile xil_pn:name="lab2_beep_demo.ngc"/>
+      <outfile xil_pn:name="lab2_beep_demo.ngr"/>
+      <outfile xil_pn:name="lab2_beep_demo.prj"/>
+      <outfile xil_pn:name="lab2_beep_demo.stx"/>
+      <outfile xil_pn:name="lab2_beep_demo.syr"/>
+      <outfile xil_pn:name="lab2_beep_demo.xst"/>
+      <outfile xil_pn:name="lab2_beep_demo_xst.xrpt"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>
       <outfile xil_pn:name="xst"/>
+    </transform>
+    <transform xil_pn:end_ts="1622159477" xil_pn:in_ck="-3189641053366922357" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="1102261581783203320" xil_pn:start_ts="1622159477">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1622159642" xil_pn:in_ck="-409924915863135663" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="8186292602455085109" xil_pn:start_ts="1622159635">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_ngo"/>
+      <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+      <outfile xil_pn:name="lab2_beep_demo.bld"/>
+      <outfile xil_pn:name="lab2_beep_demo.ngd"/>
+      <outfile xil_pn:name="lab2_beep_demo_ngdbuild.xrpt"/>
+    </transform>
+    <transform xil_pn:end_ts="1622159653" xil_pn:in_ck="861878834542072114" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="4756088955047530681" xil_pn:start_ts="1622159642">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
+      <outfile xil_pn:name="lab2_beep_demo.pcf"/>
+      <outfile xil_pn:name="lab2_beep_demo_map.map"/>
+      <outfile xil_pn:name="lab2_beep_demo_map.mrp"/>
+      <outfile xil_pn:name="lab2_beep_demo_map.ncd"/>
+      <outfile xil_pn:name="lab2_beep_demo_map.ngm"/>
+      <outfile xil_pn:name="lab2_beep_demo_map.xrpt"/>
+      <outfile xil_pn:name="lab2_beep_demo_summary.xml"/>
+      <outfile xil_pn:name="lab2_beep_demo_usage.xml"/>
+    </transform>
+    <transform xil_pn:end_ts="1622159671" xil_pn:in_ck="-2543127582856718421" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="93661965788626211" xil_pn:start_ts="1622159653">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
+      <outfile xil_pn:name="lab2_beep_demo.ncd"/>
+      <outfile xil_pn:name="lab2_beep_demo.pad"/>
+      <outfile xil_pn:name="lab2_beep_demo.par"/>
+      <outfile xil_pn:name="lab2_beep_demo.ptwx"/>
+      <outfile xil_pn:name="lab2_beep_demo.unroutes"/>
+      <outfile xil_pn:name="lab2_beep_demo.xpi"/>
+      <outfile xil_pn:name="lab2_beep_demo_pad.csv"/>
+      <outfile xil_pn:name="lab2_beep_demo_pad.txt"/>
+      <outfile xil_pn:name="lab2_beep_demo_par.xrpt"/>
+    </transform>
+    <transform xil_pn:end_ts="1622159689" xil_pn:in_ck="-6035731333811802877" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="5341574683187206424" xil_pn:start_ts="1622159678">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
+      <outfile xil_pn:name="lab2_beep_demo.bgn"/>
+      <outfile xil_pn:name="lab2_beep_demo.bit"/>
+      <outfile xil_pn:name="lab2_beep_demo.drc"/>
+      <outfile xil_pn:name="lab2_beep_demo.ut"/>
+      <outfile xil_pn:name="usage_statistics_webtalk.html"/>
+      <outfile xil_pn:name="webtalk.log"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+    </transform>
+    <transform xil_pn:end_ts="1622159671" xil_pn:in_ck="-995519555559389906" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416185" xil_pn:start_ts="1622159663">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
+      <outfile xil_pn:name="lab2_beep_demo.twr"/>
+      <outfile xil_pn:name="lab2_beep_demo.twx"/>
     </transform>
   </transforms>
 
