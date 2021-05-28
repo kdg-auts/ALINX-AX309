@@ -217,7 +217,7 @@
     </transform>
     <transform xil_pn:end_ts="1585511161" xil_pn:in_ck="5119929053398681927" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="3509730748400174656" xil_pn:start_ts="1585511154">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="NotReadyToRun"/>
+      <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
@@ -264,79 +264,92 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1585567812" xil_pn:in_ck="-2526406376981556634" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="89939640749486573" xil_pn:start_ts="1585567795">
+    <transform xil_pn:end_ts="1622156361" xil_pn:in_ck="1242513716001405012" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="89939640749486573" xil_pn:start_ts="1622156323">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputRemoved"/>
       <status xil_pn:value="OutputChanged"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
+      <outfile xil_pn:name="lab1_switch_led.lso"/>
+      <outfile xil_pn:name="lab1_switch_led.ngc"/>
+      <outfile xil_pn:name="lab1_switch_led.ngr"/>
+      <outfile xil_pn:name="lab1_switch_led.prj"/>
+      <outfile xil_pn:name="lab1_switch_led.stx"/>
+      <outfile xil_pn:name="lab1_switch_led.syr"/>
+      <outfile xil_pn:name="lab1_switch_led.xst"/>
+      <outfile xil_pn:name="lab1_switch_led_xst.xrpt"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+      <outfile xil_pn:name="xst"/>
     </transform>
-    <transform xil_pn:end_ts="1585506779" xil_pn:in_ck="-7301531751222518293" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-8182754863595183998" xil_pn:start_ts="1585506779">
+    <transform xil_pn:end_ts="1622156361" xil_pn:in_ck="-3189641053368108278" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-8182754863595183998" xil_pn:start_ts="1622156361">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="InputChanged"/>
     </transform>
-    <transform xil_pn:end_ts="1585567821" xil_pn:in_ck="-3597914169095747556" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="8766522356279422783" xil_pn:start_ts="1585567812">
+    <transform xil_pn:end_ts="1622156373" xil_pn:in_ck="-3557254964725575115" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="8766522356279422783" xil_pn:start_ts="1622156361">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="NotReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="InputRemoved"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_ngo"/>
+      <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+      <outfile xil_pn:name="lab1_switch_led.bld"/>
+      <outfile xil_pn:name="lab1_switch_led.ngd"/>
+      <outfile xil_pn:name="lab1_switch_led_ngdbuild.xrpt"/>
     </transform>
-    <transform xil_pn:end_ts="1585567838" xil_pn:in_ck="-5923360494415858569" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="4756088955047530681" xil_pn:start_ts="1585567821">
+    <transform xil_pn:end_ts="1622156408" xil_pn:in_ck="-2285451214320367338" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="4756088955047530681" xil_pn:start_ts="1622156373">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="NotReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="InputRemoved"/>
       <status xil_pn:value="OutputChanged"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
+      <outfile xil_pn:name="lab1_switch_led.pcf"/>
+      <outfile xil_pn:name="lab1_switch_led_map.map"/>
+      <outfile xil_pn:name="lab1_switch_led_map.mrp"/>
+      <outfile xil_pn:name="lab1_switch_led_map.ncd"/>
+      <outfile xil_pn:name="lab1_switch_led_map.ngm"/>
+      <outfile xil_pn:name="lab1_switch_led_map.xrpt"/>
+      <outfile xil_pn:name="lab1_switch_led_summary.xml"/>
+      <outfile xil_pn:name="lab1_switch_led_usage.xml"/>
     </transform>
-    <transform xil_pn:end_ts="1585567854" xil_pn:in_ck="67774762104497616" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="93661965788626211" xil_pn:start_ts="1585567838">
+    <transform xil_pn:end_ts="1622156424" xil_pn:in_ck="8407127147457788431" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="93661965788626211" xil_pn:start_ts="1622156408">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="NotReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="InputRemoved"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
+      <outfile xil_pn:name="lab1_switch_led.ncd"/>
+      <outfile xil_pn:name="lab1_switch_led.pad"/>
+      <outfile xil_pn:name="lab1_switch_led.par"/>
+      <outfile xil_pn:name="lab1_switch_led.ptwx"/>
+      <outfile xil_pn:name="lab1_switch_led.unroutes"/>
+      <outfile xil_pn:name="lab1_switch_led.xpi"/>
+      <outfile xil_pn:name="lab1_switch_led_pad.csv"/>
+      <outfile xil_pn:name="lab1_switch_led_pad.txt"/>
+      <outfile xil_pn:name="lab1_switch_led_par.xrpt"/>
     </transform>
-    <transform xil_pn:end_ts="1585567867" xil_pn:in_ck="4946870493046156040" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="5341574683187206424" xil_pn:start_ts="1585567854">
+    <transform xil_pn:end_ts="1622156460" xil_pn:in_ck="4946870493046156040" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="5341574683187206424" xil_pn:start_ts="1622156448">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="NotReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputRemoved"/>
-      <status xil_pn:value="OutputChanged"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
+      <outfile xil_pn:name="lab1_switch_led.bgn"/>
+      <outfile xil_pn:name="lab1_switch_led.bit"/>
+      <outfile xil_pn:name="lab1_switch_led.drc"/>
+      <outfile xil_pn:name="lab1_switch_led.ut"/>
+      <outfile xil_pn:name="usage_statistics_webtalk.html"/>
+      <outfile xil_pn:name="webtalk.log"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
     </transform>
-    <transform xil_pn:end_ts="1585568000" xil_pn:in_ck="4946870493046143186" xil_pn:name="TRAN_configureTargetDevice" xil_pn:prop_ck="8482462020707587906" xil_pn:start_ts="1585567867">
+    <transform xil_pn:end_ts="1622156819" xil_pn:in_ck="4946870493046143186" xil_pn:name="TRAN_impactProgrammingTool" xil_pn:prop_ck="2682241697568822907" xil_pn:start_ts="1622156819">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="NotReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1585567854" xil_pn:in_ck="-1510674996120913165" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416185" xil_pn:start_ts="1585567848">
+    <transform xil_pn:end_ts="1622156476" xil_pn:in_ck="4946870493046143186" xil_pn:name="TRAN_configureTargetDevice" xil_pn:prop_ck="8482462020707587906" xil_pn:start_ts="1622156473">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="NotReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="InputRemoved"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1622156424" xil_pn:in_ck="-4142849604421829358" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416185" xil_pn:start_ts="1622156418">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
+      <outfile xil_pn:name="lab1_switch_led.twr"/>
+      <outfile xil_pn:name="lab1_switch_led.twx"/>
     </transform>
   </transforms>
 
