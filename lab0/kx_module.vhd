@@ -18,7 +18,7 @@ architecture kx_arc of kx_module is
 	signal int_x , int_y: std_logic_vector(3 downto 0);
 begin
 	-- input adaptation: due to circuit features buttons operate in reverse logic
-	int_x   <= not x;
+	int_x <= not x;
 
 	-- output adaptation: this dev board does not need to reverse logic for LEDs
 	--y <= not int_y;
