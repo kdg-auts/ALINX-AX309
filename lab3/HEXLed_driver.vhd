@@ -1,4 +1,4 @@
--- project: lab3
+-- project: lab3 - hexled demo
 -- file: hexled_driver.vhd
 -- description: 
 --    6-digit 7-degment led display ("hexled") driver module (suitable for
@@ -7,47 +7,57 @@
 --    switching is performed by multiplexers; driver supports shift signal
 --    to select HEX digits (shift=0) or special symbols (shift=1)
 library IEEE;
-use IEEE.STD_LOGIC_1164.all;
+use IEEE.std_logic_1164.all;
 
 entity hexled_driver is
 	generic (
-		CNT_LIMIT: integer := 1000000 -- number of CLK periods to form 20ms delay
+		CNT_LIMIT: integer := 250000 -- number of CLK periods to form 5ms delay
 	);
 	port (
-		CLK : in STD_LOGIC;
-		RST : in STD_LOGIC;
-		DT0 : in STD_LOGIC;
-		DT1 : in STD_LOGIC;
-		DT2 : in STD_LOGIC;
-		DT3 : in STD_LOGIC;
-		DT4 : in STD_LOGIC;
-		DT5 : in STD_LOGIC;
-		DDI0 : in STD_LOGIC_VECTOR(3 downto 0);
-		DDI1 : in STD_LOGIC_VECTOR(3 downto 0);
-		DDI2 : in STD_LOGIC_VECTOR(3 downto 0);
-		DDI3 : in STD_LOGIC_VECTOR(3 downto 0);
-		DDI4 : in STD_LOGIC_VECTOR(3 downto 0);
-		DDI5 : in STD_LOGIC_VECTOR(3 downto 0);
-		SHFT : in STD_LOGIC;
-		SEG_DAT : out STD_LOGIC_VECTOR(7 downto 0);
-		DIG_SEL : out STD_LOGIC_VECTOR(5 downto 0)
+		CLK : in std_logic;
+		RST : in std_logic;
+		DT0 : in std_logic;
+		DT1 : in std_logic;
+		DT2 : in std_logic;
+		DT3 : in std_logic;
+		DT4 : in std_logic;
+		DT5 : in std_logic;
+		DDI0 : in std_logic_vector(4 downto 0);
+		DDI1 : in std_logic_vector(4 downto 0);
+		DDI2 : in std_logic_vector(4 downto 0);
+		DDI3 : in std_logic_vector(4 downto 0);
+		DDI4 : in std_logic_vector(4 downto 0);
+		DDI5 : in std_logic_vector(4 downto 0);
+		SEG_DAT : out std_logic_vector(7 downto 0);
+		DIG_SEL : out std_logic_vector(5 downto 0)
 	);
 end hexled_driver;
 
 architecture hexled_driver_arch of hexled_driver is
-	signal active_ddi: STD_LOGIC_VECTOR(3 downto 0); -- current data input to display
-	signal active_digit: STD_LOGIC_VECTOR(5 downto 0); -- active digit selector
-	signal seg_display_counter: INTEGER range 0 to CNT_LIMIT-1; -- display time interval
+	signal active_ddi: std_logic_vector(3 downto 0) := (others => '0'); -- current data input to display
+	signal active_shift: std_logic := '0'; -- shift value for current data
+	signal active_digit: std_logic_vector(5 downto 0) := (0 => '1', others => '0'); -- active digit selector
+	signal seg_display_counter: integer range 0 to CNT_LIMIT-1 := 0; -- display time interval
+	signal shift_0_seg_data : std_logic_vector(6 downto 0) := (others => '0');
+	signal shift_1_seg_data : std_logic_vector(6 downto 0) := (others => '0');
 begin
 
-	active_ddi <= DDI0 when active_digit = "000001" else
-	              DDI1 when active_digit = "000010" else
-	              DDI2 when active_digit = "000100" else
-	              DDI3 when active_digit = "001000" else
-	              DDI4 when active_digit = "010000" else
-	              DDI5; -- when active_digit = "100000"
+	-- select data to display on current digit, split data and shift
+	active_ddi <= DDI0(3 downto 0) when active_digit = "000001" else
+	              DDI1(3 downto 0) when active_digit = "000010" else
+	              DDI2(3 downto 0) when active_digit = "000100" else
+	              DDI3(3 downto 0) when active_digit = "001000" else
+	              DDI4(3 downto 0) when active_digit = "010000" else
+	              DDI5(3 downto 0); -- when active_digit = "100000"
 	
-	-- digit decoder
+	active_shift <= DDI0(4) when active_digit = "000001" else
+	                DDI1(4) when active_digit = "000010" else
+	                DDI2(4) when active_digit = "000100" else
+	                DDI3(4) when active_digit = "001000" else
+	                DDI4(4) when active_digit = "010000" else
+	                DDI5(4); -- when active_digit = "100000"
+	
+	-- digit decoder, split by shift value
 	shift_0_seg_data <= "0111111" when active_ddi = x"0" else
 	                    "0000110" when active_ddi = x"1" else
 	                    "1011011" when active_ddi = x"2" else
@@ -80,9 +90,9 @@ begin
 	                    "1100011" when active_ddi = "1100" else -- sup o
 	                    "1011100" when active_ddi = "1101" else -- sub o
 	                    "1001001" when active_ddi = "1110" else -- 3 hor. bars
-	                    "0110110"; -- "1111" -- 2 vert. bars (11)
+	                    "0110110"; -- "1111" -- 2 vert. bars (II)
 
-	SEG_DAT(6 downto 0) <= shift_0_seg_data when SHFT = '0' else
+	SEG_DAT(6 downto 0) <= shift_0_seg_data when active_shift = '0' else
 	                       shift_1_seg_data;
 
 	-- dot display selector
@@ -93,16 +103,17 @@ begin
 	              DT4 when active_digit = "010000" else
 	              DT5; -- when active_digit = "100000"
 	
-	display_interval_couter: process(CLK, RST)
+	-- active digit selector
+	display_interval_counter: process(CLK, RST)
 	begin 
 		if rising_edge(CLK) then
 			if RST = '1' then
 				seg_display_counter <= 0;
-				active_digit <= "00"; 
+				active_digit <= (0 => '1', others => '0'); 
 			elsif seg_display_counter = CNT_LIMIT-1 then
 				seg_display_counter <= 0;
 				case active_digit is 
-					when "100000" => active_digit <= "000001";
+					when "100000"|"000000" => active_digit <= "000001";
 					when others => active_digit <= active_digit(4 downto 0) & '0';
 				end case;
 			else
@@ -110,5 +121,7 @@ begin
 			end if;
 		end if;
 	end process;
+
+	DIG_SEL <= active_digit;
 	
 end hexled_driver_arch;

@@ -20,7 +20,7 @@ entity led_driver is
 	);
 end led_driver;
 
-architecture led_drv_arch of led_driver is
+architecture led_driver_arch of led_driver is
 	signal counter_1 : natural range 0 to TP_100MS-1;
 	signal counter_2 : natural range 0 to TP_1S-1;
 	signal wave_1sec : std_logic := '0';
@@ -78,4 +78,4 @@ begin
 	       '1'        when MODE = "01" else
 	       '0'; -- MODE = "00"
 	
-end architecture led_drv_arch;
+end architecture led_driver_arch;

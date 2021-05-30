@@ -31,7 +31,7 @@ entity switch_driver is
 	);
 end switch_driver;
 
-architecture switch_drv_arch of switch_driver is
+architecture switch_driver_arch of switch_driver is
 	signal sw_state_shiftreg : std_logic_vector (5 downto 0);
 	signal sw_fsm_state : std_logic;
 	signal sw_toggle_reg : std_logic;
@@ -147,4 +147,4 @@ begin
 
 	TGL <= sw_toggle_reg; -- output toggle register state
 	
-end architecture switch_drv_arch;
+end architecture switch_driver_arch;
