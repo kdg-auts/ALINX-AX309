@@ -42,6 +42,18 @@
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="7"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="1"/>
     </file>
+    <file xil_pn:name="hexled_driver_tb/hexled_driver_tb.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="145"/>
+      <association xil_pn:name="PostMapSimulation" xil_pn:seqID="145"/>
+      <association xil_pn:name="PostRouteSimulation" xil_pn:seqID="145"/>
+      <association xil_pn:name="PostTranslateSimulation" xil_pn:seqID="145"/>
+    </file>
+    <file xil_pn:name="lab3_hexled_demo_tb/lab3_hexled_demo_tb.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="146"/>
+      <association xil_pn:name="PostMapSimulation" xil_pn:seqID="146"/>
+      <association xil_pn:name="PostRouteSimulation" xil_pn:seqID="146"/>
+      <association xil_pn:name="PostTranslateSimulation" xil_pn:seqID="146"/>
+    </file>
   </files>
 
   <properties>
