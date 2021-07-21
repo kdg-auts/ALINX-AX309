@@ -1,12 +1,12 @@
 # ignore all
 *
-# exept important files
+# except important files
 !.gitignore
 !README.md
-# exept lab subdirectories
+# except lab subdirectories
 !lab*/
 lab*/*
-# exept source code files anywhere
+# except source code files anywhere
 !**/*.vhd
 !**/*.vhdl
 !**/*.v
@@ -15,12 +15,15 @@ lab*/*
 !**/*.xise
 !**/*.gise
 !**/*.ucf
-# exept local documentation (any file or dir)
+# except local documentation (any file or dir)
 !**/doc/
 !**/doc/**
-# exept testbench subdirs and TB sources/scripts
+# except testbench subdirs and TB sources/scripts
 !**/*_tb/
 **/*_tb/*
 !**/*_tb/*.vhd
 !**/*_tb/*.v
 !**/*_tb/*.do
+# lab4 subdirs
+!lab4/hexled_demo/
+!lab4/uart_module/
