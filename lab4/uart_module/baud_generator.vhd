@@ -33,9 +33,9 @@ begin
 	-- simple counter to generate baud ticks
 	bd_gen: process (CLK, RST)
 	begin
-		if (rst = '1') then
+		if (RST = '1') then
 			baud_reg <= (others => '0');
-		elsif (clk'event and clk = '1') then 
+		elsif (CLK'event and CLK = '1') then 
 			if baud_reg = BAUD_PERIOD-1 then
 				baud_reg <= (others => '0');
 			else
