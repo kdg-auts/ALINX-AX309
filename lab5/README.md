@@ -8,7 +8,7 @@
 1. Implement a system that allows you to store a multi-bit data vector, change its state with visual control on a 7-segment LED indicator, and also save the current state of this vector to non-volatile memory and restore this state after the system is turned on or reset by user commands. The project involves using the system designed in lab3. As commands for saving and restoring, it is proposed to use a long press of those buttons for which such a press has not yet been activated.
 
 **Alternative task (increased difficulty):**
-Build a system based on the design from lab4, i.e. both save/restore of the state using non-vilatile memory and receive/transmit of the state via the UART interface must be simultaneously used in the system. Implement a mechanism for saving/restoring the state by a command transmitted via the UART interface.
+*Build a system based on the design from lab4, i.e. both save/restore of the state using non-vilatile memory and receive/transmit of the state via the UART interface must be simultaneously used in the system. Implement a mechanism for saving/restoring the state by a command transmitted via the UART interface.*
 
 **Involved resources:**
 * 4 buttons
