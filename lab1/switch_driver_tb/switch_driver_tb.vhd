@@ -18,8 +18,8 @@ architecture switch_driver_tb_arch of switch_driver_tb is
 	-- component declaration of the unit under test (UUT)
 	component switch_driver
 		generic (
-			LP_COUNT_PERIOD : natural;
-			SWS_COUNT_PERIOD : natural;
+			LPR_CP : natural;
+			SWS_CP : natural;
 			SW_ACT_ST : std_logic
 		);
 		port (
@@ -53,8 +53,8 @@ begin
 	-- unit under test port map
 	UUT : switch_driver
 		generic map (
-			LP_COUNT_PERIOD => LP_COUNT_PERIOD,
-			SWS_COUNT_PERIOD => SWS_COUNT_PERIOD,
+			LPR_CP => LP_COUNT_PERIOD,
+			SWS_CP => SWS_COUNT_PERIOD,
 			SW_ACT_ST => '1'
 		)
 		port map (

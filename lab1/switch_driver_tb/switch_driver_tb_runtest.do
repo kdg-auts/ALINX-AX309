@@ -7,10 +7,10 @@ asim +access +r switch_driver_tb_conf
 wave
 wave -noreg clk
 wave -noreg rst
-wave -noreg sw
-wave -noreg Redge
-wave -noreg Fedge
-wave -noreg LVL
-wave -noreg Toggle
-wave -noreg LPress
+wave -noreg swi
+wave -noreg rie
+wave -noreg fae
+wave -noreg lvl
+wave -noreg tgl
+wave -noreg lpr
 run 3 ms;

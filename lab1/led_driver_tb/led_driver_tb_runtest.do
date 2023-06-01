@@ -9,4 +9,4 @@ wave -noreg clk
 wave -noreg rst
 wave -noreg mode
 wave -noreg led
-run 500 us;
+run 500 us
