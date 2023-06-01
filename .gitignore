@@ -11,6 +11,7 @@ lab*/*
 !**/*.vhdl
 !**/*.v
 !**/*.sv
+!**/*.do
 # except project specific files anywhere
 !**/*.xise
 !**/*.gise
