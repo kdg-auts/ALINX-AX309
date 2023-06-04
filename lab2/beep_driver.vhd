@@ -86,18 +86,20 @@ begin
 							end case;
 						end if;
 					when short_beep => -- count short period of time
-						beep_counter <= beep_counter + 1;
 						if beep_counter = SHB_PERIOD-1 then
 							beep_counter <= 0;
 							beep_en <= '0';
 							snd_state <= idle;
+						else
+							beep_counter <= beep_counter + 1;
 						end if;
 					when long_beep => 
-						beep_counter <= beep_counter + 1;
 						if beep_counter = LOB_PERIOD-1 then
 							beep_counter <= 0;
 							beep_en <= '0';
 							snd_state <= idle;
+						else
+							beep_counter <= beep_counter + 1;
 						end if;
 					when double_beep =>
 						if db_stage_count = 0 then -- first beep
