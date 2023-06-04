@@ -24,6 +24,7 @@ architecture hexled_driver_tb_arch of hexled_driver_tb is
 		 "01000", "01001", "01010", "01011", "01100", "01101", "01110", "01111",   -- 8-F
 		 "10000", "10001", "10010", "10011", "10100", "10101", "10110", "10111",   -- (symbols with shift=1: separate bars)
 		 "11000", "11001", "11010", "11011", "11100", "11101", "11110", "11111");  -- (symbols with shift=1: H L U...)
+	signal hexdigit : string(1 to 3) := "   ";
 	
 	-- stimulus signals - signals mapped to the input and inout ports of tested entity
 	signal clk : std_logic;
@@ -91,5 +92,44 @@ begin
 		end loop;
 		wait;                 -- 3) stop forever
 	end process;
+	
+	hexdigit_decoder1: hexdigit(1 to 2) <= 
+		" 0" when segment_data(6 downto 0) = "0111111" else
+		" 1" when segment_data(6 downto 0) = "0000110" else
+		" 2" when segment_data(6 downto 0) = "1011011" else
+		" 3" when segment_data(6 downto 0) = "1001111" else
+		" 4" when segment_data(6 downto 0) = "1100110" else
+		" 5" when segment_data(6 downto 0) = "1101101" else
+		" 6" when segment_data(6 downto 0) = "1111101" else
+		" 7" when segment_data(6 downto 0) = "0000111" else
+		" 8" when segment_data(6 downto 0) = "1111111" else
+		" 9" when segment_data(6 downto 0) = "1101111" else
+		" A" when segment_data(6 downto 0) = "1110111" else
+		" b" when segment_data(6 downto 0) = "1111100" else
+		" C" when segment_data(6 downto 0) = "0111001" else
+		" d" when segment_data(6 downto 0) = "1011110" else	 
+		" E" when segment_data(6 downto 0) = "1111001" else
+		" F" when segment_data(6 downto 0) = "1110001" else
+		"^ " when segment_data(6 downto 0) = "0000000" else	-- empty      
+		"^f" when segment_data(6 downto 0) = "0100000" else	-- seg F      
+		"^e" when segment_data(6 downto 0) = "0010000" else	-- seg E      
+		"^d" when segment_data(6 downto 0) = "0001000" else	-- seg D      
+		"^c" when segment_data(6 downto 0) = "0000100" else	-- seg C      
+		"^b" when segment_data(6 downto 0) = "0000010" else	-- seg B      
+		"^a" when segment_data(6 downto 0) = "0000001" else	-- seg A      
+		"^g" when segment_data(6 downto 0) = "1000000" else	-- seg G      
+		"^H" when segment_data(6 downto 0) = "1110110" else	-- "H"        
+		"^L" when segment_data(6 downto 0) = "0111000" else	-- "L"        
+		"^U" when segment_data(6 downto 0) = "0111110" else	-- "U"        
+		"^P" when segment_data(6 downto 0) = "0110111" else	-- "cyr P"       
+		"^°" when segment_data(6 downto 0) = "1100011" else	-- sup o      
+		"^o" when segment_data(6 downto 0) = "1011100" else	-- sub o      
+		"^=" when segment_data(6 downto 0) = "1001001" else	-- 3 hor. bars
+		"^|" when segment_data(6 downto 0) = "0110110" else -- "1111" -- 2 vert. bars (II)
+		"XX";	
+	hexdigit_decoder2: hexdigit(3) <= 
+	    ' ' when segment_data(7) = '0' else
+		'.' when segment_data(7) = '1' else	
+		'X';
 
 end architecture;
