@@ -10,15 +10,15 @@ use IEEE.NUMERIC_STD.all;
 
 entity uart_transmitter is
 	generic (
-		DBIT : integer := 8; -- # data bits
-		SB_TICK : integer := 16 -- # ticks for stop bits
+		PACKET_BIT_SIZE : integer := 8; -- # data bits
+		STOP_BIT_WIDTH : integer := 16 -- # ticks for stop bits
 	);
 	port (
 		CLK: in std_logic;
 		RST: in std_logic;
 		STX: in std_logic;
 		BDT: in std_logic;
-		DIN: in std_logic_vector (7 downto 0);
+		DIN: in std_logic_vector (PACKET_BIT_SIZE-1 downto 0);
 		FTX: out std_logic;
 		TXO: out std_logic
 	);
@@ -29,7 +29,7 @@ architecture uart_transmitter_arch of uart_transmitter is
 	signal state_reg, state_next : state_type;
 	signal baud_tick_count_reg, baud_tick_count_next : unsigned(3 downto 0);
 	signal bit_count_reg, bit_count_next : unsigned(2 downto 0);
-	signal tx_byte_reg, tx_byte_next : std_logic_vector(7 downto 0);
+	signal tx_byte_reg, tx_byte_next : std_logic_vector(PACKET_BIT_SIZE-1 downto 0);
 	signal tx_bit_reg, tx_bit_next : std_logic;
 	signal FTX_next : std_logic;
 begin
@@ -91,8 +91,8 @@ begin
 				if BDT = '1' then
 					if baud_tick_count_reg = 15 then
 						baud_tick_count_next <= (others => '0');
-						tx_byte_next <= '0' & tx_byte_reg(7 downto 1);
-						if bit_count_reg = DBIT-1 then
+						tx_byte_next <= '0' & tx_byte_reg(PACKET_BIT_SIZE-1 downto 1);
+						if bit_count_reg = PACKET_BIT_SIZE-1 then
 							state_next <= stopbit;
 						else
 							bit_count_next <= bit_count_reg + 1;
@@ -105,7 +105,7 @@ begin
 			when stopbit =>
 				tx_bit_next <= '1';
 				if BDT = '1' then
-					if baud_tick_count_reg = SB_TICK-1 then
+					if baud_tick_count_reg = STOP_BIT_WIDTH-1 then
 						state_next <= idle;
 						FTX_next <= '1';
 					else

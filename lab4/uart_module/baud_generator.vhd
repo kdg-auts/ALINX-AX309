@@ -2,7 +2,7 @@
 -- file: baud_generator.vhd
 -- description:
 --    Module generates a sampling signal whose frequency is exactly 16 times
---    the UART’s designated baud rate. Output signal behaves like enable ticks
+--    the UART`s designated baud rate. Output signal behaves like enable ticks
 --    rather than the clock signal to the UART receiver.
 --    BAUD_PERIOD is calculated as CLK_FREQ/(BAUD_RATE*16)
 --    table of BAUD_PERIOD values for posible baud rates (for CLK_FREQ = 50 MHz):
