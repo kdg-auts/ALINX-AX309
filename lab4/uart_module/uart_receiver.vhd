@@ -10,16 +10,16 @@ use IEEE.NUMERIC_STD.all;
  
 entity uart_receiver is
 	generic ( 
-		PACKET_BIT_SIZE : integer := 8;
-		STOP_BIT_WIDTH : integer := 16
+		PACKET_BIT_SIZE : integer := 8; -- number of data bits
+		STOP_BIT_WIDTH : integer := 16 -- baud ticks (16, 24, 32)
 	);
 	port (
-		CLK : in std_logic;
+		CLK: in std_logic;
 		RST: in std_logic;
 		RXI: in std_logic;
 		BDT: in std_logic;
 		RDY: out std_logic; 
-		PDO: out std_logic_vector(7 downto 0)
+		PDO: out std_logic_vector(PACKET_BIT_SIZE-1 downto 0)
 	);
 end entity;
 
@@ -28,11 +28,11 @@ architecture uart_receiver_arch of uart_receiver is
 	signal state_reg, state_next: state_type;
 	signal sample_count_reg, sample_count_next: unsigned(3 downto 0);
 	signal bit_count_reg, bit_count_next: unsigned(2 downto 0);
-	signal rx_data_reg, rx_data_next: std_logic_vector(7 downto 0);
+	signal rx_data_reg, rx_data_next: std_logic_vector(PACKET_BIT_SIZE-1 downto 0);
 begin
 	
-	-- receiver states update
-	fsm_update: process (CLK, RST)
+	-- receiver FSM & registers update
+	fsm_rx_update: process (CLK, RST)
 	begin
 		if RST = '1' then 
 			state_reg <= idle;
@@ -47,10 +47,10 @@ begin
 		end if;
 	end process;
 	
-	-- main FSM of receiver
+	-- receiver FSM logic
 	fsm_rx_core: process (state_reg, sample_count_reg, bit_count_reg, rx_data_reg, BDT, RXI)
 	begin
-		-- set dafault falues 
+		-- set dafault values 
 		state_next <= state_reg;
 		sample_count_next <= sample_count_reg;
 		bit_count_next <= bit_count_reg;
@@ -84,7 +84,7 @@ begin
 				if BDT = '1' then
 					if sample_count_reg = 15 then -- middle of data bit (16 sample ticks since middle of previous bit)
 						sample_count_next <= (others => '0');
-						rx_data_next <= RXI & rx_data_reg(7 downto 1); -- record current bit value to data register
+						rx_data_next <= RXI & rx_data_reg(PACKET_BIT_SIZE-1 downto 1); -- record current bit value to data register
 						if bit_count_reg = (PACKET_BIT_SIZE-1) then -- all data bits are sampled - verify stopbit
 							state_next <= stopbit;
 						else
