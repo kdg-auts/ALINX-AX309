@@ -23,7 +23,7 @@ entity uart_module is
 		DIN: in std_logic_vector (PACKET_BIT_SIZE-1 downto 0); -- data to transmit
 		TXO: out std_logic; -- tx serial out
 		RXI: in std_logic;  -- rx serial in
-		FTX: out std_logic;
+		TXB: out std_logic;	-- transmitter busy
 		RXD: out std_logic_vector (PACKET_BIT_SIZE-1 downto 0); -- received data
 		RXF: out std_logic; -- received data ready
 		RXR: in std_logic -- received data acknowledge	
@@ -106,5 +106,6 @@ begin
 		FLG => RXF	--output port
 	);
 	
+	TXB <= start_tx_sig;
 	
 end architecture;

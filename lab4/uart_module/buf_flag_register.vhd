@@ -44,4 +44,5 @@ begin
 		end if;
 	end process;
 	FLG <= flag_reg;
+	DTO <= data_reg;
 end architecture;

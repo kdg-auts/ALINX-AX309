@@ -10,11 +10,11 @@ use IEEE.NUMERIC_STD.all;
  
 entity uart_receiver is
 	generic ( 
-		PACKET_BIT_SIZE : integer := 8; -- number of data bits
-		STOP_BIT_WIDTH : integer := 16 -- baud ticks (16, 24, 32)
+		PACKET_BIT_SIZE : integer := 8;
+		STOP_BIT_WIDTH : integer := 16
 	);
 	port (
-		CLK: in std_logic;
+		CLK : in std_logic;
 		RST: in std_logic;
 		RXI: in std_logic;
 		BDT: in std_logic;
@@ -32,7 +32,7 @@ architecture uart_receiver_arch of uart_receiver is
 begin
 	
 	-- receiver FSM & registers update
-	fsm_rx_update: process (CLK, RST)
+	fsm_update: process (CLK, RST)
 	begin
 		if RST = '1' then 
 			state_reg <= idle;
