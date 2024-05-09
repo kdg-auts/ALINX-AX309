@@ -31,7 +31,7 @@ begin
 	process (CLK, RST) 
 	begin 
 		if RST = '1' then 
-		   	array_reg <= (others => ( others=> '0'));
+			array_reg <= (others => ( others=> '0'));
 		elsif CLK'event and CLK = '1' then 
 			if wr_en = '1' then 
 				array_reg(to_integer(unsigned(write_ptr_reg))) <= DI; 
