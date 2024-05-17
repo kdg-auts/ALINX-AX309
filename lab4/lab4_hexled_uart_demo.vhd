@@ -1,18 +1,21 @@
--- project: lab3 - hexled demo
--- file: lab3_hexled_demo.vhd
+-- project: lab4 - hexled demo with UART
+-- file: lab4_hexled_uart_demo.vhd
 -- description:
 --    top-level module, combines 4 switch_driver modules for each Key button, hexled_driver
 --    module to display states of internal 6 registers, 2 led_driver modules to display
 --    current state code for active digit, beep_driver to play sound for different events
---    and control_fsm to perform main algorithm
+--    and control_fsm to perform main algorithm. 
+--    UART module is used to transmit full current state of symbols displayed on hexled
+--    indicator every 100 ms and accept updates for symbols on hexled indicator
 
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity lab3_hexled_demo is
+entity lab4_hexled_uart_demo is
 	generic (
 		BOARD_CLK_FREQ : natural := 50000000; -- CLK frequency in Hz
-		SND_MODE: std_logic := '0' -- output generation mode: '0' = constant, '1' = waveform
+		SND_MODE: std_logic := '0'; -- output generation mode: '0' = constant, '1' = waveform  
+		BAUD_PERIOD : integer := 325 -- default baud rate is 9600 (tick period 325)
 	);
 	port (
 		CLK : in std_logic;
@@ -21,11 +24,13 @@ entity lab3_hexled_demo is
 		SEG : out std_logic_vector(7 downto 0);
 		DIG : out std_logic_vector(5 downto 0);
 		LDO : out std_logic_vector(3 downto 0);
-		BPO : out std_logic
+		BPO : out std_logic;
+		RXI : in std_logic;
+		TXO : out std_logic
 	);
-end lab3_hexled_demo;
+end entity;
 
-architecture lab3_hexled_demo_arch of lab3_hexled_demo is
+architecture lab4_hexled_uart_demo_arch of lab4_hexled_uart_demo is
 	-- input/output buffer signals (to ajust logic levels)
 	signal RST_sig : std_logic;
 	signal SWI_sig : std_logic_vector(3 downto 0);
@@ -33,6 +38,8 @@ architecture lab3_hexled_demo_arch of lab3_hexled_demo is
 	signal SEG_data_sig : std_logic_vector(7 downto 0);
 	signal DIG_sel_sig : std_logic_vector(5 downto 0);
 	signal BPO_sig : std_logic;
+	signal RXI_sig : std_logic;
+	signal TXO_sig : std_logic;
 
 	-- internal signals
 	signal sw1_left_sig : std_logic;
@@ -52,6 +59,13 @@ architecture lab3_hexled_demo_arch of lab3_hexled_demo is
 	signal digit5_sig : std_logic_vector(4 downto 0) := (others => '0');
 	signal beep_mode_sig : std_logic_vector(1 downto 0) := "00";
 	signal beep_run_sig : std_logic := '0';
+	signal tx_buffer_full_sig : std_logic := '0';
+	signal rx_buffer_full_sig : std_logic := '0';
+	signal rx_data_ready_sig : std_logic := '0';
+	signal received_data_sig : std_logic_vector(7 downto 0) := (others => '0');
+	signal write_to_fifo_sig : std_logic := '0'; 
+	signal rx_data_ack_sig : std_logic := '0';
+	signal data_to_transmit_sig : std_logic_vector(7 downto 0) := (others => '0');
 
 	-- customization constants (generics for components)
 	constant interval_1sec : natural := BOARD_CLK_FREQ; -- 1 sec :: 50 MHz (T=20 ns)
@@ -62,6 +76,9 @@ architecture lab3_hexled_demo_arch of lab3_hexled_demo is
 	constant long_beep_period : natural := BOARD_CLK_FREQ; -- 1 sec
 	constant short_beep_period : natural := BOARD_CLK_FREQ/5; -- 200 ms
 	constant sound_freq_period : natural := BOARD_CLK_FREQ/2000; -- 0.5 ms (Fsnd = 2 kHz)
+	--constant baud_period : integer := 325; -- default baud rate is 9600 (tick period 325)
+	constant packet_bit_size : integer := 8;
+	constant stop_bit_width : integer := 16;
 begin
 
 	sw_drv1: entity work.switch_driver(switch_driver_arch)
@@ -133,6 +150,9 @@ begin
 		);
 
 	main_fsm: entity work.control_fsm(control_fsm_arch)
+		generic map (
+			SEND_TIMER_MAX => interval_100ms
+		)
 		port map (
 			CLK => CLK,
 			RST	=> RST_sig,
@@ -152,7 +172,14 @@ begin
 			LED2_MODE => led2_mode_sig,
 			LED3_MODE => led3_mode_sig,
 			BEEP_MODE => beep_mode_sig,
-			BEEP_RUN => beep_run_sig
+			BEEP_RUN => beep_run_sig,
+			RX_DATA => received_data_sig,
+			RX_DATA_RDY => rx_data_ready_sig,
+			RX_BUF_FULL => rx_buffer_full_sig,
+			TX_BUF_FULL => tx_buffer_full_sig,
+			TX_DATA => data_to_transmit_sig,
+			TX_DATA_WR => write_to_fifo_sig,
+			RX_DATA_ACK => rx_data_ack_sig
 		);
 
 	led0_drv: entity work.led_driver(led_driver_arch)
@@ -240,7 +267,27 @@ begin
 			MODE => beep_mode_sig,
 			BEEP => BPO_sig
 		);
-
+	
+	uart_module: entity work.uart_module_fifo(uart_module_fifo_arch) 	
+		generic map (
+			BAUD_PERIOD => BAUD_PERIOD,
+			PACKET_BIT_SIZE => packet_bit_size,
+			STOP_BIT_WIDTH => stop_bit_width
+		)
+		port map (
+			CLK => CLK,
+			RST => RST_sig,
+			WRF => write_to_fifo_sig,
+			DIN => data_to_transmit_sig,
+			TXO => TXO_sig,
+			RXI => RXI_sig,
+			FFL => tx_buffer_full_sig,
+			RXD => received_data_sig,
+			RXF => rx_data_ready_sig, 
+			FBF => rx_buffer_full_sig,
+			RXR => rx_data_ack_sig	
+		);
+		
 	-- input adaptation (positive or negative logic format depending on dev board schematic)
 	-- switches/keys operate with negative logic (0 = press, 1 = release)
 	RST_sig <= not RST;
@@ -252,5 +299,8 @@ begin
 	-- hexled display circuit needs drive signals to be negated
 	SEG <= not SEG_data_sig;
 	DIG <= not DIG_sel_sig;
+	-- uart signals
+	TXO <= TXO_sig;
+	RXI_sig <= RXI;
 
-end architecture lab3_hexled_demo_arch;
+end architecture;

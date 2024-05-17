@@ -34,11 +34,13 @@ architecture uart_module_fifo_arch of uart_module_fifo is
 	signal rx_data_ready_sig : std_logic;
 	signal rx_data_sig : std_logic_vector (PACKET_BIT_SIZE-1 downto 0);
 	signal start_tx_sig : std_logic;
-	signal fifo_empty : std_logic;
-	signal fifo_full : std_logic;
+	signal read_tx_fifo_sig : std_logic;
+	signal tx_is_busy_sig : std_logic;
+	signal fifo_empty_sig : std_logic;
+	signal fifo_full_sig : std_logic;
 	signal data_to_tx_sig : std_logic_vector (PACKET_BIT_SIZE-1 downto 0);
 	signal finish_tx_sig : std_logic;
-	signal rx_fifo_ready : std_logic;
+	signal rx_fifo_ready_sig : std_logic;
 begin
 	
 	baud_gen_unit: entity work.baud_generator(baud_generator_arch)
@@ -88,11 +90,11 @@ begin
 	port map (
 		CLK => CLK,
 		RST => RST,
-		RD => finish_tx_sig,
+		RD => read_tx_fifo_sig,
 		WR => WRF,
 		DI => DIN,
-		EMPT => fifo_empty,
-		FULL => fifo_full,
+		EMPT => fifo_empty_sig,
+		FULL => fifo_full_sig,
 		DO => data_to_tx_sig
 	);
 	
@@ -107,13 +109,34 @@ begin
 		RD => RXR,
 		WR => rx_data_ready_sig,
 		DI => rx_data_sig,
-		EMPT => rx_fifo_ready,
+		EMPT => rx_fifo_ready_sig,
 		FULL => FBF,
 		DO => RXD
 	);
 	
-	start_tx_sig <= not fifo_empty;
-	FFL <= fifo_full;
-	RXF <= not rx_fifo_ready;
+	tx_control: process(CLK, RST)
+	begin
+		if RST = '1' then 
+			start_tx_sig <= '0';
+			read_tx_fifo_sig <= '0';
+			tx_is_busy_sig <= '0';
+		elsif CLK'event and CLK = '1' then
+			if fifo_empty_sig = '0' and tx_is_busy_sig = '0' then
+				start_tx_sig <= '1';
+				read_tx_fifo_sig <= '1';
+				tx_is_busy_sig <= '1';
+			else 
+				start_tx_sig <= '0';
+				read_tx_fifo_sig <= '0'; 
+			end if;
+			if finish_tx_sig = '1' then
+				tx_is_busy_sig <= '0';
+			end if;
+		end if;
+	end process;
+	
+	--start_tx_sig <= not fifo_empty_sig;
+	FFL <= fifo_full_sig;
+	RXF <= not rx_fifo_ready_sig;
 	
 end architecture;

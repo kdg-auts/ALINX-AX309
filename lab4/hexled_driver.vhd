@@ -86,7 +86,7 @@ begin
 	                    "1110110" when active_ddi = "1000" else -- "H"
 	                    "0111000" when active_ddi = "1001" else -- "L"
 	                    "0111110" when active_ddi = "1010" else -- "U"
-	                    "0110111" when active_ddi = "1011" else -- "П"
+	                    "0110111" when active_ddi = "1011" else -- "П" (upsidedown U)
 	                    "1100011" when active_ddi = "1100" else -- sup o
 	                    "1011100" when active_ddi = "1101" else -- sub o
 	                    "1001001" when active_ddi = "1110" else -- 3 hor. bars
