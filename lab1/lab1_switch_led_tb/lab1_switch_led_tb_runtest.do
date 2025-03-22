@@ -6,7 +6,7 @@ comp -include "$dsn\src\led_driver.vhd"
 comp -include "$dsn\src\control_fsm.vhd"
 comp -include "$dsn\src\switch_led_tester.vhd"
 comp -include "$dsn\src\lab1_switch_led.vhd"
-comp -include "$dsn\src\lab1_switch_led_tb.vhd"
+comp -include "$dsn\src\lab1_switch_led_tb\lab1_switch_led_tb.vhd"
 asim +access +r lab1_switch_led_tb
 wave
 wave -noreg clk

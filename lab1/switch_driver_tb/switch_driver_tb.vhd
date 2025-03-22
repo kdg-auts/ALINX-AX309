@@ -9,8 +9,8 @@ use IEEE.std_logic_1164.all;
 
 entity switch_driver_tb is
 	generic (
-		LP_COUNT_PERIOD : natural := 500;
-		SWS_COUNT_PERIOD : natural := 10
+		LP_COUNT_PERIOD : natural := 5000;
+		SWS_COUNT_PERIOD : natural := 100
 	);
 end switch_driver_tb;
 
@@ -91,7 +91,7 @@ begin
 		wait until rst = '0';
 		wait for clk_period * 50; -- pause before press
 
-		-- pressing button - imitating bounce untill is constantly ON
+		-- pressing button - imitating bounce until is constantly ON
 		-- ** task 1: rewrite bounce section using customized random intervals (random pkg)
 		swi <= '1';
 		wait for 1500 ns;
@@ -117,24 +117,24 @@ begin
 		wait for 1 ms; -- wery long
 		-- button is finally pressed - wait for long time
 
-		-- releasing button - imitating bounce untill is constantly OFF
+		-- releasing button - imitating bounce until is constantly OFF
 		-- ** task 2: rewrite bounce section using customized random intervals (random pkg)
-		sw <= '0';
+		swi <= '0';
 		wait for 5 us;
-		sw <= '1';
+		swi <= '1';
 		wait for 5 us;
 
-		sw <= '0';
+		swi <= '0';
 		wait for 7 us;
-		sw <= '1';
+		swi <= '1';
 		wait for 3500 ns;
 
-		sw <= '0';
+		swi <= '0';
 		wait for 10 us;
-		sw <= '1';
+		swi <= '1';
 		wait for 1500 ns;
 
-		sw <= '0';
+		swi <= '0';
 		wait for 7 us; -- wery long
 		-- button is finally released - wait for long time
 

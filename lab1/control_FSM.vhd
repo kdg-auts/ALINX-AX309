@@ -21,7 +21,7 @@ entity control_fsm is
 end control_fsm;
 
 architecture control_fsm_arch of control_fsm is
-	type fsm_state_type is (idle, press, release, long_press);
+	type fsm_state_type is (idle, press_b, release_b, long_press);
 	signal fsm_state : fsm_state_type;
 	signal led_mode_sig : std_logic_vector(1 downto 0) := "00";
 begin
@@ -36,15 +36,15 @@ begin
 				case fsm_state is 
 					when idle => -- default state, waiting switch/key press
 						if RIE = '1' then
-							fsm_state <= press;
+							fsm_state <= press_b;
 						end if;
-					when press => -- switch/key press detected, now wait for release or long press
+					when press_b => -- switch/key press detected, now wait for release or long press
 						if FAE = '1' then -- release
-							fsm_state <= release;
+							fsm_state <= release_b;
 						elsif LPR = '1' then -- long press
 							fsm_state <= long_press;
 						end if;
-					when release => -- change mode in circle OFF -> ON -> slow blink -> OFF -> ...
+					when release_b => -- change mode in circle OFF -> ON -> slow blink -> OFF -> ...
 						case led_mode_sig is
 							when "00" => led_mode_sig <= "01"; -- led ON
 							when "01" => led_mode_sig <= "10"; -- ON -> slow blink
