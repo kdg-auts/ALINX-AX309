@@ -19,14 +19,13 @@ lab*/*
 # except local documentation (any file or dir)
 !**/doc/
 !**/doc/**
-!**/*.md
-!**/*/*.md
 # except testbench subdirs and TB sources/scripts
 !**/*_tb/
 **/*_tb/*
 !**/*_tb/*.vhd
 !**/*_tb/*.v
 !**/*_tb/*.do
+!**/*_tb/*.md
 # lab4 subdirs
 !lab4/hexled_demo/
 !lab4/uart_module/
