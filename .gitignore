@@ -20,7 +20,7 @@ lab*/*
 !**/doc/
 !**/doc/**
 !**/*.md
-!**/**/*.md
+!**/*/*.md
 # except testbench subdirs and TB sources/scripts
 !**/*_tb/
 **/*_tb/*
